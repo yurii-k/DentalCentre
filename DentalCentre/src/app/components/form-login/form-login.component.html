@@ -1,39 +1,54 @@
-<div fxFlex fxLayout="column" fxLayoutAlign="start start" [formGroup]='userForm'>
-    <mat-form-field>
-      <input matInput placeholder="Username" formControlName="username">
-    </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Password" formControlName="password" type="password">
-    </mat-form-field>
+<ng-template #defaultTemplate>
+  <mat-form-field>
+    <input matInput placeholder="Username" formControlName="username">
+  </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Full Name" formControlName="fullName">
-    </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Password" formControlName="password" type="password">
+  </mat-form-field>
+</ng-template>
 
-    <mat-form-field>
-      <input matInput placeholder="Email" formControlName="email">
-    </mat-form-field>
+<ng-template #customTemplate>
+  <mat-form-field>
+    <input matInput placeholder="Username" formControlName="username">
+  </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Address" formControlName="address">
-    </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Password" formControlName="password" type="password">
+  </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Phone" formControlName="phone">
-    </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Full Name" formControlName="fullName">
+  </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Age" formControlName="age">
-    </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Email" formControlName="email">
+  </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="History of the disease" formControlName="history">
-    </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Address" formControlName="address">
+  </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Allergy" formControlName="allergy">
-    </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Phone" formControlName="phone">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Age" formControlName="age">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="History of the disease" formControlName="history">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Allergy" formControlName="allergy">
+  </mat-form-field>
+</ng-template>
+
+<div fxFlex fxLayout="column" fxLayoutAlign="start start" >
+    <ng-container *ngTemplateOutlet="configTemplate" [formGroup]='userForm'></ng-container>
     <div fxLayout="row" fxLayoutAlign="center center">
       <button *ngIf="(formMode == 'login')"
               mat-stroked-button color="primary" (click)="onLogin()">Log in</button>

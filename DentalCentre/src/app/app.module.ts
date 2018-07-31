@@ -9,6 +9,8 @@ import {MatInputModule} from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatButtonModule} from '@angular/material/button';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+
 
 
 import { AppComponent } from './app.component';
@@ -44,7 +46,8 @@ import { FormLoginComponent } from './components/form-login/form-login.component
     MatRadioModule,
     MatButtonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
