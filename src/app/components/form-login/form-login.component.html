@@ -1,0 +1,49 @@
+<div fxFlex fxLayout="column" fxLayoutAlign="start start" >
+  <div [formGroup]='userForm' [ngSwitch]="formMode">
+    <mat-form-field>
+      <input matInput placeholder="Username" formControlName="username">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Password" formControlName="password" type="password">
+    </mat-form-field>
+
+    <ng-container *ngSwitchCase="'signUp'">
+      <mat-form-field>
+        <input matInput placeholder="Full Name" formControlName="fullName">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Address" formControlName="address">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Phone" formControlName="phone">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Age" formControlName="age">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="History of the disease" formControlName="history">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Allergy" formControlName="allergy">
+      </mat-form-field>
+    </ng-container>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <button *ngIf="(formMode == 'login')"
+            mat-stroked-button color="primary">Log in</button>
+    <button
+            mat-stroked-button color="primary" (click)="onSubmitBtnClick($event)">Submit</button>
+  </div>
+</div>
+
