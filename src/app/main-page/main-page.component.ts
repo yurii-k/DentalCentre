@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AngularIndexedDB} from "../service/indexed-db.service";
+import {HttpService} from "../service/httpService/httpService.service";
 
 
 @Component({
@@ -9,9 +10,11 @@ import {AngularIndexedDB} from "../service/indexed-db.service";
 })
 export class MainPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpService) { }
 
   ngOnInit() {
+
+    this.createDataBase();
 
     const db = new AngularIndexedDB('myDb', 1);
     db.openDatabase(1, (evt) => {
@@ -28,5 +31,15 @@ export class MainPageComponent implements OnInit {
         objectStore.createIndex('allergy', 'allergy', { unique: false });
        }
     );
+  }
+
+  createDataBase() {
+    this.http.getPatients()
+      .subscribe((data: any) => {
+      });
+
+    this.http.getDentists()
+      .subscribe((data: any) => {
+      });
   }
 }

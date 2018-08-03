@@ -22,6 +22,7 @@ import { ProfilePatientComponent } from './main-page/profile-patient/profile-pat
 import { HomeComponent } from './main-page/home/home.component';
 import { RegistrationFormComponent } from './main-page/registration-form/registration-form.component';
 import { FormLoginComponent } from './components/form-login/form-login.component';
+import {LocationStrategy, PathLocationStrategy} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -49,7 +50,10 @@ import { FormLoginComponent } from './components/form-login/form-login.component
     ReactiveFormsModule,
     MatButtonToggleModule
   ],
-  providers: [],
+  providers: [
+    {provide: LocationStrategy,
+    useClass: PathLocationStrategy}
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
